@@ -5,7 +5,7 @@ import { AuthGuard } from './user.guard';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
   @Post('login')
   login(@Body() loginUserDTO: LoginUserDTO) {
     return this.userService.signIn(loginUserDTO.userName, loginUserDTO.userPwd);
@@ -19,6 +19,15 @@ export class UserController {
       totalMoney: 3984200,
       orderCount: 1306000,
       cityNum: 80
+    };
+  }
+
+  @Post('collect')
+  collect(@Body('name') name: string, @Body('type') type: string) {
+    console.log('name==', name, 'type==', type);
+    return {
+      name,
+      type
     };
   }
 }
