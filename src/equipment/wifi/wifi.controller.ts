@@ -7,7 +7,6 @@ import { WifiService } from './wifi.service';
 export class WifiController {
   constructor(private readonly wifiService: WifiService) { }
   // 获取wifi列表
-  @UseGuards(AuthGuard)
   @Get('getWifiList')
   report() {
     return this.wifiService.findAll();

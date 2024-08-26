@@ -15,10 +15,11 @@ import { WifiController } from './equipment/wifi/wifi.controller';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:
-        process.env.NODE_ENV === 'production'
-          ? '.production.env'
-          : '.development.env'
+      // envFilePath:
+      //   process.env.NODE_ENV === 'production'
+      //     ? '.production.env'
+      //     : '.development.env'
+      envFilePath: '.production.env'
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
